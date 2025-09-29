@@ -6,37 +6,44 @@ import PeopleInput from "./PeopleInput";
 import Results from "./Results";
 import ResetButton from "./ResetButton";
 import { calculateTipPerPerson, calculateTotalPerPerson } from "../../utils/calculator";
+import "../styles/TipCalculator.css"; // ✅ import styles
 
 export default function TipCalculator() {
   const [bill, setBill] = useState(0);
-  const [tipPercent, setTipPercent] = useState(0);
+  const [tip, setTip] = useState(10);
   const [people, setPeople] = useState(1);
 
-  // computed values
-  const tipAmount = calculateTipPerPerson(bill, tipPercent, people);
-  const total = calculateTotalPerPerson(bill, tipPercent, people);
-
-  // reset handler
-  const reset = () => {
-    setBill(0);
-    setTipPercent(0);
-    setPeople(1);
-  };
+  const tipAmount = (bill * (tip / 100)) / people;
+  const totalPerPerson = bill / people + tipAmount;
 
   return (
-    <div>
+    <div className="container">
       <h1>Tip Calculator</h1>
 
-      {/* Left Side */}
-      <BillInput bill={bill} setBill={setBill} />
-      <TipSelector tipPercent={tipPercent} setTipPercent={setTipPercent} />
-      <PeopleInput people={people} setPeople={setPeople} />
+      <label>Bill Amount</label>
+      <input
+        type="number"
+        value={bill}
+        onChange={(e) => setBill(Number(e.target.value))}
+      />
 
-      {/* Right Side */}
-      <Results tipAmount={tipAmount} total={total} />
+      <label>Tip %</label>
+      <input
+        type="number"
+        value={tip}
+        onChange={(e) => setTip(Number(e.target.value))}
+      />
 
-      {/* Reset */}
-      <ResetButton reset={reset} />
+      <label>Number of People</label>
+      <input
+        type="number"
+        min="1"
+        value={people}
+        onChange={(e) => setPeople(Number(e.target.value))}
+      />
+
+      <h2>Tip per Person: ${tipAmount.toFixed(2)}</h2>
+      <h2>Total per Person: ${totalPerPerson.toFixed(2)}</h2>
     </div>
   );
 }
