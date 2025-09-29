@@ -5,7 +5,7 @@ import TipSelector from "./TipSelector";
 import PeopleInput from "./PeopleInput";
 import Results from "./Results";
 import ResetButton from "./ResetButton";
-import { calculateTipPerPerson, calculateTotalPerPerson } from "../utils/calculator";
+import { calculateTipPerPerson, calculateTotalPerPerson } from "../../utils/calculator";
 
 export default function TipCalculator() {
   const [bill, setBill] = useState(0);
