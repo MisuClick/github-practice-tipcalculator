@@ -1,6 +1,6 @@
 "use client";
 import React, { FC } from "react";
-import "../../styles/TipAmount.css"; // create this CSS file
+import "../../styles/Result.css"; // create this CSS file
 
 interface TipAmountProps {
   amount: number;
@@ -8,12 +8,12 @@ interface TipAmountProps {
 
 const TipAmount: FC<TipAmountProps> = ({ amount }) => {
   return (
-    <div className="tip-amount-container">
-      <div className="tip-label">
+    <div className="result-container">
+      <div className="result-label">
         <p>Tip Amount</p>
         <span className="per-person">/ person</span>
       </div>
-      <p className="tip-value">${amount.toFixed(2)}</p>
+      <p className="result-value">${amount.toFixed(2)}</p>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-.tip-amount-container {
+.result-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -9,7 +9,7 @@
     color: #ffffff;
 }
 
-.tip-label p {
+.result-label p {
     margin: 0;
     font-size: 0.9rem;
 }
@@ -21,7 +21,7 @@
     /* lighter text color */
 }
 
-.tip-value {
+.result-value {
     font-size: 2rem;
     font-weight: bold;
     color: #26c2ae;

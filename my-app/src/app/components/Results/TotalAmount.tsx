@@ -6,7 +6,15 @@ interface TotalAmountProps {
 }
 
 const TotalAmount: FC<TotalAmountProps> = ({ amount }) => {
-  return <p>Total (per person): ${amount.toFixed(2)}</p>;
+    return (
+    <div className="result-container">
+      <div className="result-label">
+        <p>Total Amount</p>
+        <span className="per-person">/ person</span>
+      </div>
+      <p className="result-value">${amount.toFixed(2)}</p>
+    </div>
+  );
 };
 
 export default TotalAmount;
