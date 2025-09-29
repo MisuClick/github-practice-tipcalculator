@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import "../styles/TipSelector.css";
 
 interface TipSelectorProps {
   tipPercent: number;
@@ -8,23 +9,31 @@ interface TipSelectorProps {
 
 const tipOptions = [5, 10, 15, 25, 50];
 
-export default function TipSelector({ tipPercent, setTipPercent }: TipSelectorProps) {
+export const TipSelector: React.FC<TipSelectorProps> = ({
+  tipPercent,
+  setTipPercent,
+}) => {
   return (
-    <div>
-      <label>Select Tip %</label>
-      <div>
+    <div className="tip-selector">
+      <label className="tip-label">Select Tip %</label>
+      <div className="tip-grid">
         {tipOptions.map((tip) => (
-          <button key={tip} onClick={() => setTipPercent(tip)}>
+          <button
+            key={tip}
+            onClick={() => setTipPercent(tip)}
+            className={`tip-button ${tipPercent === tip ? "active" : ""}`}
+          >
             {tip}%
           </button>
         ))}
         {/* Custom input */}
         <input
           type="number"
+          className="tip-input"
           placeholder="Custom"
           onChange={(e) => setTipPercent(parseFloat(e.target.value) || 0)}
         />
       </div>
     </div>
   );
-}
+};

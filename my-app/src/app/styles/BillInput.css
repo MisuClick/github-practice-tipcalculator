@@ -1,0 +1,32 @@
+.bill-input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+.bill-label {
+    font-weight: 600;
+    color: #333;
+    font-size: 0.9rem;
+}
+
+.bill-input {
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.bill-input:focus {
+    outline: none;
+    border-color: #4caf50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+.bill-input::placeholder {
+    color: #aaa;
+}

@@ -1,0 +1,30 @@
+.tip-amount-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #00474b;
+    /* optional: match dark teal background */
+    border-radius: 12px;
+    color: #ffffff;
+}
+
+.tip-label p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.per-person {
+    display: block;
+    font-size: 0.7rem;
+    color: #7f9c9f;
+    /* lighter text color */
+}
+
+.tip-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #26c2ae;
+    /* green color from your screenshot */
+    margin: 0;
+}

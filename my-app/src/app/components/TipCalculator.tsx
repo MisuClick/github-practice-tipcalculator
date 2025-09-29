@@ -1,49 +1,45 @@
 "use client";
 import { useState } from "react";
 import BillInput from "./BillInput";
-import TipSelector from "./TipSelector";
+import {TipSelector} from "./TipSelector";
 import PeopleInput from "./PeopleInput";
-import Results from "./Results";
+import TipAmount from "./Results/TipAmount";
+import TotalAmount from "./Results/TotalAmount";
 import ResetButton from "./ResetButton";
-import { calculateTipPerPerson, calculateTotalPerPerson } from "../../utils/calculator";
-import "../styles/TipCalculator.css"; // ✅ import styles
+import {
+  calculateTipPerPerson,
+  calculateTotalPerPerson,
+} from "../../utils/calculator";
 
 export default function TipCalculator() {
   const [bill, setBill] = useState(0);
   const [tip, setTip] = useState(10);
   const [people, setPeople] = useState(1);
 
-  const tipAmount = (bill * (tip / 100)) / people;
-  const totalPerPerson = bill / people + tipAmount;
+  const tipAmount = calculateTipPerPerson(bill, tip, people);
+  const totalPerPerson = calculateTotalPerPerson(bill, tip, people);
+
+  const handleReset = () => {
+    setBill(0);
+    setTip(10);
+    setPeople(1);
+  };
 
   return (
-    <div className="container">
-      <h1>Tip Calculator</h1>
+    <div className="tip-calculator-container">
+      {/* Inputs Section */}
+      <div className="inputs-container">
+        <BillInput bill={bill} setBill={setBill} />
+        <TipSelector tipPercent={tip} setTipPercent={setTip} />
+        <PeopleInput people={people} setPeople={setPeople} />
+      </div>
 
-      <label>Bill Amount</label>
-      <input
-        type="number"
-        value={bill}
-        onChange={(e) => setBill(Number(e.target.value))}
-      />
-
-      <label>Tip %</label>
-      <input
-        type="number"
-        value={tip}
-        onChange={(e) => setTip(Number(e.target.value))}
-      />
-
-      <label>Number of People</label>
-      <input
-        type="number"
-        min="1"
-        value={people}
-        onChange={(e) => setPeople(Number(e.target.value))}
-      />
-
-      <h2>Tip per Person: ${tipAmount.toFixed(2)}</h2>
-      <h2>Total per Person: ${totalPerPerson.toFixed(2)}</h2>
+      {/* Results Section */}
+      <div className="results-container">
+        <TipAmount amount={tipAmount} />
+        <TotalAmount amount={totalPerPerson} />
+        <ResetButton onReset={handleReset} disabled={bill <= 0} />
+      </div>
     </div>
   );
 }

@@ -1,10 +1,17 @@
 "use client";
-import React from "react";
+import React, { FC } from "react";
 
 interface ResetButtonProps {
-  reset: () => void;
+  onReset: () => void;
+  disabled: boolean;
 }
 
-export default function ResetButton({ reset }: ResetButtonProps) {
-  return <button onClick={reset}>RESET</button>;
-}
+const ResetButton: FC<ResetButtonProps> = ({ onReset, disabled }) => {
+  return (
+    <button onClick={onReset} disabled={disabled}>
+      RESET
+    </button>
+  );
+};
+
+export default ResetButton;

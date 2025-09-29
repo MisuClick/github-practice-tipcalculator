@@ -1,12 +1,12 @@
 "use client";
-import React from "react";
+import React, { FC } from "react";
 
 interface PeopleInputProps {
   people: number;
   setPeople: (value: number) => void;
 }
 
-export default function PeopleInput({ people, setPeople }: PeopleInputProps) {
+const PeopleInput: FC<PeopleInputProps> = ({ people, setPeople }) => {
   return (
     <div>
       <label>Number of People</label>
@@ -19,4 +19,6 @@ export default function PeopleInput({ people, setPeople }: PeopleInputProps) {
       />
     </div>
   );
-}
+};
+
+export default PeopleInput;

@@ -1,0 +1,51 @@
+.tip-selector {
+    margin: 1rem 0;
+}
+
+.tip-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.tip-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+}
+
+.tip-button {
+    background: #00494d;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    padding: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.tip-button:hover {
+    background: #26c0ab;
+}
+
+.tip-button.active {
+    background: #26c0ab;
+    color: #00494d;
+}
+
+.tip-input {
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    padding: 0.75rem;
+    font-size: 1rem;
+    text-align: center;
+    outline: none;
+    transition: border-color 0.2s ease-in-out;
+}
+
+.tip-input:focus {
+    border-color: #26c0ab;
+}

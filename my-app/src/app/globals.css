@@ -36,25 +36,6 @@
   }
 }
 
-@layer components {
-  .input-field {
-    @apply w-full bg-grey-50 text-green-900 text-[24px] font-bold text-right px-4 py-2 rounded-md border-2 border-transparent focus:border-green-400 focus:outline-none;
-  }
-
-  .tip-button {
-    @apply bg-green-900 text-white text-[16px] font-bold py-3 px-6 rounded-md hover:bg-green-400 hover:text-green-900 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-400;
-  }
-
-  .tip-button-active {
-    @apply bg-green-400 text-green-900;
-  }
-
-  .custom-input {
-    @apply bg-grey-50 text-green-900 text-[18px] font-bold text-right py-3 px-4 rounded-md border-2 border-transparent focus:border-green-400 focus:outline-none placeholder-grey-400;
-  }
-
-}
-
 .reset-button {
   font-size: 18px;
   font-weight: 700;
@@ -71,4 +52,15 @@
 
 .input-field.border-red-500:focus {
   border-color: #ef4444;
+}
+
+/* Tailwind + global reset for number inputs */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
 }
