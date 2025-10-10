@@ -1,5 +1,6 @@
 "use client";
 import React, { FC } from "react";
+import "../styles/ResetButton.css"; // Make sure to create this CSS file
 
 interface ResetButtonProps {
   onReset: () => void;
@@ -8,7 +9,11 @@ interface ResetButtonProps {
 
 const ResetButton: FC<ResetButtonProps> = ({ onReset, disabled }) => {
   return (
-    <button onClick={onReset} disabled={disabled}>
+    <button
+      className="reset-button"
+      onClick={onReset}
+      disabled={disabled}
+    >
       RESET
     </button>
   );

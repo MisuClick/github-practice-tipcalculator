@@ -1,0 +1,48 @@
+.people-input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    width: 100%;
+    max-width: 260px;
+}
+
+.people-label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.people-label {
+    font-weight: 600;
+    color: #5e7a7d;
+    font-size: 0.9rem;
+}
+
+.error-text {
+    color: #e17055;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.people-input {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.people-input:focus {
+    outline: none;
+    border-color: #26c0ab;
+    box-shadow: 0 0 5px rgba(38, 192, 171, 0.4);
+}
+
+.people-input::placeholder {
+    color: #aaa;
+}
+
+.people-input.error {
+    border-color: #e17055;
+}

@@ -1,5 +1,6 @@
 "use client";
 import React, { FC } from "react";
+import "../styles/PeopleInput.css";
 
 interface PeopleInputProps {
   people: number;
@@ -7,15 +8,24 @@ interface PeopleInputProps {
 }
 
 const PeopleInput: FC<PeopleInputProps> = ({ people, setPeople }) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = parseInt(e.target.value, 10);
+    setPeople(isNaN(value) ? 0 : value);
+  };
+
   return (
-    <div>
-      <label>Number of People</label>
+    <div className="people-input-container">
+      <div className="people-label-row">
+        <label className="people-label">Number of People</label>
+        {people === 0 && <span className="error-text">Can't be zero</span>}
+      </div>
       <input
         type="number"
-        value={people || ""}
-        onChange={(e) => setPeople(parseInt(e.target.value) || 1)}
-        placeholder="1"
-        min={1}
+        className={`people-input ${people === 0 ? "error" : ""}`}
+        value={people}
+        onChange={handleChange}
+        placeholder="0"
+        min={0}
       />
     </div>
   );
